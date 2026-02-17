@@ -1,70 +1,349 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Ahmad Rabbani | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ahmad Rabbani | Software Developer (Flutter & .NET)</title>
+  <meta name="description" content="IHK-certified Fachinformatiker für Anwendungsentwicklung. Flutter & .NET (WPF). Real projects with demos." />
   <style>
-    body { font-family: Arial; background:#f4f4f4; margin:0; padding:0; }
-    header { background:#1e293b; color:white; padding:40px; text-align:center; }
-    section { padding:40px; }
-    h2 { color:#1e293b; }
-    .card {
-      background:white;
-      padding:20px;
-      margin:15px 0;
-      border-radius:8px;
-      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    :root{
+      --bg:#0b1020;
+      --card:#101a33;
+      --muted:#9fb0d0;
+      --text:#eaf0ff;
+      --accent:#7c5cff;
+      --accent2:#2ee59d;
+      --border: rgba(255,255,255,.08);
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --radius: 18px;
     }
-    a { color:#2563eb; text-decoration:none; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      background: radial-gradient(1200px 700px at 20% -10%, rgba(124,92,255,.35), transparent 60%),
+                  radial-gradient(1000px 600px at 90% 0%, rgba(46,229,157,.20), transparent 55%),
+                  radial-gradient(1200px 800px at 40% 120%, rgba(124,92,255,.18), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px; margin:0 auto; padding:24px}
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,16,32,.55);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:14px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700}
+    .dot{width:10px; height:10px; border-radius:99px; background: linear-gradient(135deg,var(--accent),var(--accent2))}
+    .links{display:flex; gap:14px; flex-wrap:wrap}
+    .links a{color:var(--muted); font-size:14px; padding:10px 10px; border-radius:12px}
+    .links a:hover{background:rgba(255,255,255,.05); color:var(--text)}
+    .hero{
+      padding:46px 0 26px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:22px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-left{padding:28px}
+    .kicker{color:var(--muted); font-size:14px; letter-spacing:.3px}
+    h1{margin:10px 0 10px; font-size:42px; line-height:1.15}
+    @media (max-width: 520px){ h1{font-size:34px} }
+    .sub{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;
+      max-width: 62ch;
+    }
+    .pillrow{margin-top:16px; display:flex; gap:10px; flex-wrap:wrap}
+    .pill{
+      font-size:13px;
+      color: #dfe7ff;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+    }
+    .cta{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight:600;
+      font-size:14px;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(124,92,255,.9), rgba(46,229,157,.35));
+      border-color: rgba(255,255,255,.16);
+    }
+    .btn:hover{transform: translateY(-1px); transition:.15s ease}
+    .hero-right{padding:22px; display:flex; flex-direction:column; gap:14px}
+    .mini{
+      padding:16px;
+      border-radius: 16px;
+      border:1px solid var(--border);
+      background: rgba(16,26,51,.55);
+    }
+    .mini h3{margin:0 0 6px; font-size:14px; color:#dfe7ff}
+    .mini p{margin:0; color:var(--muted); font-size:14px}
+    section{padding:18px 0}
+    .section-title{display:flex; align-items:center; justify-content:space-between; gap:12px; margin:12px 0}
+    .section-title h2{margin:0; font-size:18px}
+    .section-title span{color:var(--muted); font-size:13px}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 950px){ .grid{grid-template-columns: repeat(2, 1fr);} }
+    @media (max-width: 650px){ .grid{grid-template-columns: 1fr;} }
+    .proj{padding:16px}
+    .proj .tag{display:inline-block; font-size:12px; color:#cfe6ff; margin-bottom:10px}
+    .proj h3{margin:0 0 6px; font-size:16px}
+    .proj p{margin:0 0 12px; color:var(--muted); font-size:14px}
+    .meta{display:flex; gap:8px; flex-wrap:wrap}
+    .chip{
+      font-size:12px; color:var(--muted);
+      padding:7px 9px; border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+    }
+    .row{display:grid; grid-template-columns: 1fr 1fr; gap:14px}
+    @media (max-width: 900px){ .row{grid-template-columns:1fr} }
+    .list{padding:16px}
+    .list h3{margin:0 0 10px; font-size:16px}
+    .item{padding:12px 0; border-top:1px solid var(--border)}
+    .item:first-of-type{border-top:0}
+    .item strong{display:block}
+    footer{
+      padding:26px 0 40px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .foot{
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      border-top:1px solid var(--border);
+      padding-top:18px;
+    }
+    .small-links{display:flex; gap:12px; flex-wrap:wrap}
+    .small-links a{color:var(--muted)}
+    .small-links a:hover{color:var(--text)}
   </style>
 </head>
+
 <body>
-
-<header>
-  <h1>Ahmad Rabbani</h1>
-  <p>Junior Software Developer (.NET & Flutter)</p>
-  <p>Lübeck / Hamburg | Remote possible</p>
-</header>
-
-<section>
-  <h2>About Me</h2>
-  <p>IHK-certified Fachinformatiker für Anwendungsentwicklung with hands-on experience in .NET and Flutter development. 
-  I build structured, real-world applications with clean architecture and practical logic.</p>
-</section>
-
-<section>
-  <h2>Tech Stack</h2>
-  <p>.NET 6 | WPF | C# | Flutter | Dart | REST APIs | SQLite | MVVM</p>
-</section>
-
-<section>
-  <h2>Projects</h2>
-
-  <div class="card">
-    <h3>Scientific Calculator (WPF)</h3>
-    <p>Advanced desktop calculator with equation solvers and graphical visualization.</p>
-    <a href="https://github.com/Rabbani84/ScientificCalculator-WPF">View on GitHub</a>
+  <div class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Ahmad Rabbani</span>
+      </div>
+      <div class="links">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/Rabbani84" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </div>
   </div>
 
-  <div class="card">
-    <h3>Zahlen Raten (WPF Game)</h3>
-    <p>Number guessing desktop game demonstrating logic design and HashSet usage.</p>
-    <a href="https://github.com/Rabbani84/ZahlenRatenWPFApp">View on GitHub</a>
+  <div class="container">
+    <div class="hero">
+      <div class="card hero-left">
+        <div class="kicker">Junior Software Developer · Flutter & .NET (WPF)</div>
+        <h1>Building practical apps<br/>with clean logic & real demos.</h1>
+        <p class="sub">
+          IHK-certified <b>Fachinformatiker für Anwendungsentwicklung</b> with hands-on experience in
+          <b>Flutter</b> (cross-platform) and <b>C#/.NET (WPF)</b>. Strong background in <b>Mathematics & Statistics</b>.
+        </p>
+
+        <div class="pillrow">
+          <span class="pill">Flutter · Dart</span>
+          <span class="pill">C# · .NET 6 · WPF</span>
+          <span class="pill">REST APIs · SQLite</span>
+          <span class="pill">MVVM · Git</span>
+          <span class="pill">Lübeck / Hamburg · Remote possible</span>
+        </div>
+
+        <div class="cta">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn" href="https://github.com/Rabbani84" target="_blank" rel="noreferrer">Open GitHub</a>
+        </div>
+      </div>
+
+      <div class="card hero-right">
+        <div class="mini">
+          <h3>Focus</h3>
+          <p>Flutter mobile & web demos + .NET desktop apps with structured code (MVVM-ready).</p>
+        </div>
+        <div class="mini">
+          <h3>Experience</h3>
+          <p>Internships at <b>ananas.codes</b>: Flutter time tracking app, REST integration via middleware, SQLite, MVVM.</p>
+        </div>
+        <div class="mini">
+          <h3>Work Style</h3>
+          <p>Clear UI, maintainable logic, practical features, and well-documented repositories.</p>
+        </div>
+      </div>
+    </div>
+
+    <section id="projects">
+      <div class="section-title">
+        <h2>Featured Projects</h2>
+        <span>Flutter + .NET/WPF</span>
+      </div>
+
+      <div class="grid">
+        <a class="card proj" href="https://github.com/Rabbani84/rabbani_zeiterfassung" target="_blank" rel="noreferrer">
+          <div class="tag">⏱️ Flutter</div>
+          <h3>Rabbani Zeiterfassung</h3>
+          <p>Time tracking app with API integration and demo build (no company code).</p>
+          <div class="meta">
+            <span class="chip">Flutter</span><span class="chip">REST</span><span class="chip">SQLite</span><span class="chip">MVVM</span>
+          </div>
+          <p style="margin-top:10px;color:#cfe6ff;font-size:13px;">
+            Live demo: rabbani84.github.io/rabbani_zeiterfassung/
+          </p>
+        </a>
+
+        <a class="card proj" href="https://github.com/Rabbani84/todo1_app" target="_blank" rel="noreferrer">
+          <div class="tag">✅ Flutter</div>
+          <h3>Todo App</h3>
+          <p>Simple productivity app with local storage and clean UI.</p>
+          <div class="meta">
+            <span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Local storage</span>
+          </div>
+          <p style="margin-top:10px;color:#cfe6ff;font-size:13px;">
+            Live demo: rabbani84.github.io/todo1_app/
+          </p>
+        </a>
+
+        <a class="card proj" href="https://github.com/Rabbani84/ScientificCalculator-WPF" target="_blank" rel="noreferrer">
+          <div class="tag">🧮 .NET / WPF</div>
+          <h3>Scientific Calculator (WPF)</h3>
+          <p>Scientific calculator with quadratic/cubic solver and graph visualization.</p>
+          <div class="meta">
+            <span class="chip">C#</span><span class="chip">WPF</span><span class="chip">OxyPlot</span><span class="chip">Math</span>
+          </div>
+        </a>
+
+        <a class="card proj" href="https://github.com/Rabbani84/ZahlenRatenWPFApp" target="_blank" rel="noreferrer">
+          <div class="tag">🎮 .NET / WPF</div>
+          <h3>ZahlenRaten (WPF Game)</h3>
+          <p>Number guessing game showcasing logic, state management, and WPF UI interaction.</p>
+          <div class="meta">
+            <span class="chip">C#</span><span class="chip">WPF</span><span class="chip">Game logic</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-title">
+        <h2>Skills</h2>
+        <span>What I use day-to-day</span>
+      </div>
+
+      <div class="row">
+        <div class="card list">
+          <h3>Development</h3>
+          <div class="item"><strong>Flutter / Dart</strong><span style="color:var(--muted)">Cross-platform apps, demos, structured architecture</span></div>
+          <div class="item"><strong>C# / .NET 6 / WPF</strong><span style="color:var(--muted)">Desktop apps, UI + logic separation, MVVM-ready</span></div>
+          <div class="item"><strong>Web</strong><span style="color:var(--muted)">HTML, CSS, JavaScript (basics)</span></div>
+        </div>
+
+        <div class="card list">
+          <h3>Data & Tools</h3>
+          <div class="item"><strong>Databases</strong><span style="color:var(--muted)">SQLite, MySQL, MS SQL</span></div>
+          <div class="item"><strong>APIs</strong><span style="color:var(--muted)">REST APIs, integration patterns</span></div>
+          <div class="item"><strong>Tools</strong><span style="color:var(--muted)">Git, VS Code, Visual Studio, IntelliJ, Windows/Linux</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-title">
+        <h2>Experience & Education</h2>
+        <span>Highlights (non-personal)</span>
+      </div>
+
+      <div class="row">
+        <div class="card list">
+          <h3>Professional</h3>
+          <div class="item">
+            <strong>Internship · ananas.codes</strong>
+            <span style="color:var(--muted)">Flutter time tracking app · REST integration via middleware · SQLite · MVVM</span>
+          </div>
+          <div class="item">
+            <strong>Umschulung · Application Development</strong>
+            <span style="color:var(--muted)">IHK-certified Fachinformatiker für Anwendungsentwicklung</span>
+          </div>
+          <div class="item">
+            <strong>InGe Program (Kiel)</strong>
+            <span style="color:var(--muted)">Java OOP · Web basics · Linux/network fundamentals</span>
+          </div>
+        </div>
+
+        <div class="card list">
+          <h3>Academic</h3>
+          <div class="item">
+            <strong>Mathematical Statistics</strong>
+            <span style="color:var(--muted)">Strong analytical foundation for algorithms and structured problem solving</span>
+          </div>
+          <div class="item">
+            <strong>Public Management (Administrative Informatics)</strong>
+            <span style="color:var(--muted)">Information systems & decision support fundamentals</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <span>Fast links</span>
+      </div>
+
+      <div class="card list">
+        <div class="item"><strong>GitHub</strong><a class="chip" href="https://github.com/Rabbani84" target="_blank" rel="noreferrer">github.com/Rabbani84</a></div>
+        <div class="item"><strong>Portfolio</strong><span style="color:var(--muted)">This page + project demos on GitHub Pages</span></div>
+        <div class="item"><strong>Location</strong><span style="color:var(--muted)">Lübeck / Hamburg · Remote possible</span></div>
+        <!-- تضيف الإيميل لاحقًا: ضع سطر هنا -->
+      </div>
+    </section>
+
+    <footer>
+      <div class="foot">
+        <div>© <span id="y"></span> Ahmad Rabbani · Built with GitHub Pages</div>
+        <div class="small-links">
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="https://github.com/Rabbani84" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+    </footer>
   </div>
 
-  <div class="card">
-    <h3>Rabbani Zeiterfassung (Flutter)</h3>
-    <p>Cross-platform time tracking app with API integration.</p>
-    <a href="https://github.com/Rabbani84/rabbani_zeiterfassung">View on GitHub</a>
-  </div>
-
-  <div class="card">
-    <h3>Todo App (Flutter)</h3>
-    <p>Simple productivity app using local storage.</p>
-    <a href="https://github.com/Rabbani84/todo1_app">View on GitHub</a>
-  </div>
-
-</section>
-
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
