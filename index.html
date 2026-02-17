@@ -1,19 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ahmad Rabbani</title>
+  <meta charset="UTF-8">
+  <title>Ahmad Rabbani | Portfolio</title>
+  <style>
+    body { font-family: Arial; background:#f4f4f4; margin:0; padding:0; }
+    header { background:#1e293b; color:white; padding:40px; text-align:center; }
+    section { padding:40px; }
+    h2 { color:#1e293b; }
+    .card {
+      background:white;
+      padding:20px;
+      margin:15px 0;
+      border-radius:8px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    }
+    a { color:#2563eb; text-decoration:none; }
+  </style>
 </head>
 <body>
+
+<header>
   <h1>Ahmad Rabbani</h1>
   <p>Junior Software Developer (.NET & Flutter)</p>
   <p>Lübeck / Hamburg | Remote possible</p>
+</header>
 
+<section>
+  <h2>About Me</h2>
+  <p>IHK-certified Fachinformatiker für Anwendungsentwicklung with hands-on experience in .NET and Flutter development. 
+  I build structured, real-world applications with clean architecture and practical logic.</p>
+</section>
+
+<section>
+  <h2>Tech Stack</h2>
+  <p>.NET 6 | WPF | C# | Flutter | Dart | REST APIs | SQLite | MVVM</p>
+</section>
+
+<section>
   <h2>Projects</h2>
-  <ul>
-    <li><a href="https://github.com/Rabbani84/ScientificCalculator-WPF">Scientific Calculator (.NET)</a></li>
-    <li><a href="https://github.com/Rabbani84/ZahlenRatenWPFApp">Zahlen Raten (WPF Game)</a></li>
-    <li><a href="https://github.com/Rabbani84/rabbani_zeiterfassung">Flutter Time Tracking</a></li>
-    <li><a href="https://github.com/Rabbani84/todo1_app">Flutter Todo App</a></li>
-  </ul>
+
+  <div class="card">
+    <h3>Scientific Calculator (WPF)</h3>
+    <p>Advanced desktop calculator with equation solvers and graphical visualization.</p>
+    <a href="https://github.com/Rabbani84/ScientificCalculator-WPF">View on GitHub</a>
+  </div>
+
+  <div class="card">
+    <h3>Zahlen Raten (WPF Game)</h3>
+    <p>Number guessing desktop game demonstrating logic design and HashSet usage.</p>
+    <a href="https://github.com/Rabbani84/ZahlenRatenWPFApp">View on GitHub</a>
+  </div>
+
+  <div class="card">
+    <h3>Rabbani Zeiterfassung (Flutter)</h3>
+    <p>Cross-platform time tracking app with API integration.</p>
+    <a href="https://github.com/Rabbani84/rabbani_zeiterfassung">View on GitHub</a>
+  </div>
+
+  <div class="card">
+    <h3>Todo App (Flutter)</h3>
+    <p>Simple productivity app using local storage.</p>
+    <a href="https://github.com/Rabbani84/todo1_app">View on GitHub</a>
+  </div>
+
+</section>
+
 </body>
 </html>
