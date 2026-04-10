@@ -4,147 +4,462 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ahmad Rabbani | Software Developer (Flutter & .NET)</title>
-  <meta name="description" content="IHK-certified Fachinformatiker für Anwendungsentwicklung. Flutter & .NET (WPF). Real projects with demos." />
+  <meta
+    name="description"
+    content="IHK-certified Fachinformatiker für Anwendungsentwicklung. Flutter & .NET developer with real projects and live demos."
+  />
   <style>
     :root{
-      --bg:#0b1020;
-      --card:#101a33;
+      --bg:#0a0f1f;
+      --bg-soft:#0f1730;
+      --card:#111b36;
+      --card-2:#152142;
       --muted:#9fb0d0;
-      --text:#eaf0ff;
+      --text:#eef3ff;
       --accent:#7c5cff;
       --accent2:#2ee59d;
-      --border: rgba(255,255,255,.08);
-      --shadow: 0 18px 60px rgba(0,0,0,.35);
-      --radius: 18px;
+      --accent3:#62a8ff;
+      --border:rgba(255,255,255,.08);
+      --shadow:0 18px 60px rgba(0,0,0,.35);
+      --shadow-hover:0 24px 70px rgba(0,0,0,.45);
+      --radius:20px;
+      --radius-sm:14px;
+      --max:1150px;
     }
+
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     html,body{height:100%}
+
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
-      background: radial-gradient(1200px 700px at 20% -10%, rgba(124,92,255,.35), transparent 60%),
-                  radial-gradient(1000px 600px at 90% 0%, rgba(46,229,157,.20), transparent 55%),
-                  radial-gradient(1200px 800px at 40% 120%, rgba(124,92,255,.18), transparent 60%),
-                  var(--bg);
-      color: var(--text);
+      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,"Noto Sans","Liberation Sans",sans-serif;
+      background:
+        radial-gradient(1000px 700px at 10% -10%, rgba(124,92,255,.30), transparent 60%),
+        radial-gradient(900px 600px at 90% 0%, rgba(46,229,157,.18), transparent 55%),
+        radial-gradient(1000px 800px at 50% 120%, rgba(98,168,255,.12), transparent 60%),
+        linear-gradient(180deg, #09101f 0%, #0b1224 100%);
+      color:var(--text);
       line-height:1.6;
     }
+
     a{color:inherit; text-decoration:none}
-    .container{max-width:1100px; margin:0 auto; padding:24px}
+    img{max-width:100%; display:block}
+
+    .container{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:24px;
+    }
+
     .nav{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: rgba(11,16,32,.55);
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(12px);
+      background:rgba(10,15,31,.62);
       border-bottom:1px solid var(--border);
     }
-    .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:14px}
-    .brand{display:flex; align-items:center; gap:10px; font-weight:700}
-    .dot{width:10px; height:10px; border-radius:99px; background: linear-gradient(135deg,var(--accent),var(--accent2))}
-    .links{display:flex; gap:14px; flex-wrap:wrap}
-    .links a{color:var(--muted); font-size:14px; padding:10px 10px; border-radius:12px}
-    .links a:hover{background:rgba(255,255,255,.05); color:var(--text)}
+
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      min-height:72px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+
+    .dot{
+      width:12px;
+      height:12px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 0 18px rgba(124,92,255,.6);
+    }
+
+    .links{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .links a{
+      color:var(--muted);
+      font-size:14px;
+      padding:10px 12px;
+      border-radius:12px;
+      transition:.2s ease;
+    }
+
+    .links a:hover{
+      background:rgba(255,255,255,.05);
+      color:var(--text);
+    }
+
     .hero{
-      padding:46px 0 26px;
+      padding:42px 0 26px;
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:22px;
+      grid-template-columns:1.2fr .8fr;
+      gap:20px;
       align-items:stretch;
     }
-    @media (max-width: 900px){
+
+    @media (max-width:900px){
       .hero{grid-template-columns:1fr}
     }
+
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
       border:1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
     }
-    .hero-left{padding:28px}
-    .kicker{color:var(--muted); font-size:14px; letter-spacing:.3px}
-    h1{margin:10px 0 10px; font-size:42px; line-height:1.15}
-    @media (max-width: 520px){ h1{font-size:34px} }
+
+    .hero-left{
+      padding:32px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-left::after{
+      content:"";
+      position:absolute;
+      inset:auto -80px -80px auto;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(124,92,255,.18), transparent 65%);
+      pointer-events:none;
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:#dbe5ff;
+      font-size:13px;
+      letter-spacing:.3px;
+      padding:8px 12px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+    }
+
+    h1{
+      margin:16px 0 12px;
+      font-size:48px;
+      line-height:1.08;
+      letter-spacing:-.02em;
+    }
+
+    @media (max-width:520px){
+      h1{font-size:34px}
+    }
+
+    .gradient-text{
+      background:linear-gradient(135deg,#ffffff 0%, #b9c8ff 45%, #8ef2c8 100%);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+      color:transparent;
+    }
+
     .sub{
       margin:0;
       color:var(--muted);
       font-size:16px;
-      max-width: 62ch;
+      max-width:64ch;
     }
-    .pillrow{margin-top:16px; display:flex; gap:10px; flex-wrap:wrap}
+
+    .pillrow{
+      margin-top:18px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
     .pill{
       font-size:13px;
-      color: #dfe7ff;
-      padding:8px 10px;
+      color:#e3ebff;
+      padding:8px 11px;
       border-radius:999px;
       border:1px solid var(--border);
-      background: rgba(255,255,255,.04);
+      background:rgba(255,255,255,.04);
     }
-    .cta{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap}
+
+    .cta{
+      margin-top:22px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
     .btn{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:12px 14px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 16px;
       border-radius:14px;
       border:1px solid var(--border);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      font-weight:600;
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:700;
       font-size:14px;
+      transition:.2s ease;
     }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 22px rgba(0,0,0,.22);
+    }
+
     .btn.primary{
-      background: linear-gradient(135deg, rgba(124,92,255,.9), rgba(46,229,157,.35));
-      border-color: rgba(255,255,255,.16);
+      background:linear-gradient(135deg, rgba(124,92,255,.95), rgba(46,229,157,.35));
+      border-color:rgba(255,255,255,.16);
     }
-    .btn:hover{transform: translateY(-1px); transition:.15s ease}
-    .hero-right{padding:22px; display:flex; flex-direction:column; gap:14px}
-    .mini{
-      padding:16px;
-      border-radius: 16px;
-      border:1px solid var(--border);
-      background: rgba(16,26,51,.55);
-    }
-    .mini h3{margin:0 0 6px; font-size:14px; color:#dfe7ff}
-    .mini p{margin:0; color:var(--muted); font-size:14px}
-    section{padding:18px 0}
-    .section-title{display:flex; align-items:center; justify-content:space-between; gap:12px; margin:12px 0}
-    .section-title h2{margin:0; font-size:18px}
-    .section-title span{color:var(--muted); font-size:13px}
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
+
+    .hero-right{
+      padding:22px;
+      display:flex;
+      flex-direction:column;
       gap:14px;
     }
-    @media (max-width: 950px){ .grid{grid-template-columns: repeat(2, 1fr);} }
-    @media (max-width: 650px){ .grid{grid-template-columns: 1fr;} }
-    .proj{padding:16px}
-    .proj .tag{display:inline-block; font-size:12px; color:#cfe6ff; margin-bottom:10px}
-    .proj h3{margin:0 0 6px; font-size:16px}
-    .proj p{margin:0 0 12px; color:var(--muted); font-size:14px}
-    .meta{display:flex; gap:8px; flex-wrap:wrap}
-    .chip{
-      font-size:12px; color:var(--muted);
-      padding:7px 9px; border-radius:999px;
+
+    .mini{
+      padding:18px;
+      border-radius:16px;
       border:1px solid var(--border);
-      background: rgba(255,255,255,.03);
+      background:linear-gradient(180deg, rgba(17,27,54,.9), rgba(17,27,54,.5));
     }
-    .row{display:grid; grid-template-columns: 1fr 1fr; gap:14px}
-    @media (max-width: 900px){ .row{grid-template-columns:1fr} }
-    .list{padding:16px}
-    .list h3{margin:0 0 10px; font-size:16px}
-    .item{padding:12px 0; border-top:1px solid var(--border)}
-    .item:first-of-type{border-top:0}
-    .item strong{display:block}
-    footer{
-      padding:26px 0 40px;
+
+    .mini h3{
+      margin:0 0 6px;
+      font-size:14px;
+      color:#dfe7ff;
+    }
+
+    .mini p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    section{padding:20px 0}
+
+    .section-title{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:12px;
+      margin:12px 0 16px;
+    }
+
+    .section-title h2{
+      margin:0;
+      font-size:22px;
+      letter-spacing:-.01em;
+    }
+
+    .section-title span{
       color:var(--muted);
       font-size:13px;
     }
+
+    .featured-banner{
+      margin:0 0 14px;
+      padding:16px 18px;
+      border-radius:18px;
+      border:1px solid rgba(124,92,255,.28);
+      background:
+        linear-gradient(135deg, rgba(124,92,255,.12), rgba(46,229,157,.08)),
+        rgba(255,255,255,.03);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .featured-banner strong{
+      display:block;
+      font-size:15px;
+      margin-bottom:3px;
+    }
+
+    .featured-banner p{
+      margin:0;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:16px;
+    }
+
+    @media (max-width:950px){
+      .grid{grid-template-columns:repeat(2, 1fr)}
+    }
+
+    @media (max-width:650px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    .proj{
+      padding:18px;
+      transition:.22s ease;
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+    }
+
+    .proj:hover{
+      transform:translateY(-4px);
+      box-shadow:var(--shadow-hover);
+      border-color:rgba(255,255,255,.14);
+    }
+
+    .proj.featured{
+      position:relative;
+      background:
+        linear-gradient(180deg, rgba(124,92,255,.10), rgba(255,255,255,.03));
+    }
+
+    .proj.featured::before{
+      content:"Featured";
+      position:absolute;
+      top:14px;
+      right:14px;
+      font-size:12px;
+      font-weight:700;
+      color:#f3f6ff;
+      padding:6px 10px;
+      border-radius:999px;
+      background:linear-gradient(135deg, rgba(124,92,255,.9), rgba(98,168,255,.55));
+      border:1px solid rgba(255,255,255,.14);
+    }
+
+    .proj .tag{
+      display:inline-block;
+      font-size:12px;
+      color:#cfe6ff;
+      margin-bottom:10px;
+    }
+
+    .proj h3{
+      margin:0 0 8px;
+      font-size:18px;
+      line-height:1.3;
+    }
+
+    .proj p{
+      margin:0 0 12px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .meta{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:auto;
+      padding-top:6px;
+    }
+
+    .chip{
+      font-size:12px;
+      color:var(--muted);
+      padding:7px 9px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+    }
+
+    .demo-link{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top:10px;
+      color:#d9e7ff;
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .demo-link:hover{
+      color:#ffffff;
+    }
+
+    .row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    @media (max-width:900px){
+      .row{grid-template-columns:1fr}
+    }
+
+    .list{
+      padding:18px;
+    }
+
+    .list h3{
+      margin:0 0 10px;
+      font-size:16px;
+    }
+
+    .item{
+      padding:13px 0;
+      border-top:1px solid var(--border);
+    }
+
+    .item:first-of-type{
+      border-top:0;
+    }
+
+    .item strong{
+      display:block;
+      margin-bottom:3px;
+    }
+
+    footer{
+      padding:28px 0 40px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
     .foot{
-      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
       border-top:1px solid var(--border);
       padding-top:18px;
     }
-    .small-links{display:flex; gap:12px; flex-wrap:wrap}
-    .small-links a{color:var(--muted)}
-    .small-links a:hover{color:var(--text)}
+
+    .small-links{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .small-links a{
+      color:var(--muted);
+    }
+
+    .small-links a:hover{
+      color:var(--text);
+    }
   </style>
 </head>
 
@@ -169,10 +484,16 @@
     <div class="hero">
       <div class="card hero-left">
         <div class="kicker">Junior Software Developer · Flutter & .NET (WPF)</div>
-        <h1>Building practical apps<br/>with clean logic & real demos.</h1>
+
+        <h1>
+          Building practical apps<br />
+          <span class="gradient-text">with real demos and clean logic.</span>
+        </h1>
+
         <p class="sub">
           IHK-certified <b>Fachinformatiker für Anwendungsentwicklung</b> with hands-on experience in
-          <b>Flutter</b> (cross-platform) and <b>C#/.NET (WPF)</b>. Strong background in <b>Mathematics & Statistics</b>.
+          <b>Flutter</b> for cross-platform apps and <b>C# / .NET (WPF)</b> for desktop applications.
+          Strong background in <b>Mathematics & Statistics</b> and a focus on practical, user-oriented software.
         </p>
 
         <div class="pillrow">
@@ -186,21 +507,22 @@
         <div class="cta">
           <a class="btn primary" href="#projects">View Projects</a>
           <a class="btn" href="https://github.com/Rabbani84" target="_blank" rel="noreferrer">Open GitHub</a>
+          <a class="btn" href="https://rabbani84.github.io/leben-in-deutschland-demo/" target="_blank" rel="noreferrer">Open Latest Demo</a>
         </div>
       </div>
 
       <div class="card hero-right">
         <div class="mini">
-          <h3>Focus</h3>
-          <p>Flutter mobile & web demos + .NET desktop apps with structured code (MVVM-ready).</p>
+          <h3>Current Highlight</h3>
+          <p><b>Leben in Deutschland</b>: bilingual Flutter learning app with a live web demo. Mobile release is currently in testing.</p>
         </div>
         <div class="mini">
           <h3>Experience</h3>
-          <p>Internships at <b>ananas.codes</b>: Flutter time tracking app, REST integration via middleware, SQLite, MVVM.</p>
+          <p>Internship at <b>ananas.codes</b>: Flutter time-tracking app, REST integration via middleware, SQLite, and MVVM-oriented architecture.</p>
         </div>
         <div class="mini">
           <h3>Work Style</h3>
-          <p>Clear UI, maintainable logic, practical features, and well-documented repositories.</p>
+          <p>Clear UI, maintainable logic, practical features, and portfolio projects that can be viewed directly in the browser.</p>
         </div>
       </div>
     </div>
@@ -208,49 +530,83 @@
     <section id="projects">
       <div class="section-title">
         <h2>Featured Projects</h2>
-        <span>Flutter + .NET/WPF</span>
+        <span>Flutter + .NET / WPF</span>
+      </div>
+
+      <div class="featured-banner card">
+        <div>
+          <strong>Newest live demo: Leben in Deutschland</strong>
+          <p>Bilingual Flutter app for test preparation in German and Arabic — currently in testing for Google Play.</p>
+        </div>
+        <a class="btn primary" href="https://rabbani84.github.io/leben-in-deutschland-demo/" target="_blank" rel="noreferrer">Open Demo</a>
       </div>
 
       <div class="grid">
+        <a class="card proj featured" href="https://rabbani84.github.io/leben-in-deutschland-demo/" target="_blank" rel="noreferrer">
+          <div class="tag">🇩🇪 Flutter · Web Demo</div>
+          <h3>Leben in Deutschland</h3>
+          <p>
+            Bilingual learning app for preparing for the <b>Leben in Deutschland</b> test in
+            <b>German and Arabic</b>. Designed for practical learning, clear navigation, and accessible exam preparation.
+          </p>
+          <p>
+            <b>Status:</b> currently in testing for publication on <b>Google Play</b>. A future <b>App Store</b> release is planned.
+          </p>
+          <div class="meta">
+            <span class="chip">Flutter</span>
+            <span class="chip">Dart</span>
+            <span class="chip">Bilingual UI</span>
+            <span class="chip">JSON</span>
+            <span class="chip">Web Demo</span>
+          </div>
+          <span class="demo-link">Live demo → rabbani84.github.io/leben-in-deutschland-demo/</span>
+        </a>
+
         <a class="card proj" href="https://github.com/Rabbani84/rabbani_zeiterfassung" target="_blank" rel="noreferrer">
           <div class="tag">⏱️ Flutter</div>
           <h3>Rabbani Zeiterfassung</h3>
-          <p>Time tracking app with API integration and demo build (no company code).</p>
+          <p>Time-tracking app with API integration and demo build, based on practical internship experience without sharing company code.</p>
           <div class="meta">
-            <span class="chip">Flutter</span><span class="chip">REST</span><span class="chip">SQLite</span><span class="chip">MVVM</span>
+            <span class="chip">Flutter</span>
+            <span class="chip">REST</span>
+            <span class="chip">SQLite</span>
+            <span class="chip">MVVM</span>
           </div>
-          <p style="margin-top:10px;color:#cfe6ff;font-size:13px;">
-            Live demo: rabbani84.github.io/rabbani_zeiterfassung/
-          </p>
+          <span class="demo-link">Live demo → rabbani84.github.io/rabbani_zeiterfassung/</span>
         </a>
 
         <a class="card proj" href="https://github.com/Rabbani84/todo1_app" target="_blank" rel="noreferrer">
           <div class="tag">✅ Flutter</div>
           <h3>Todo App</h3>
-          <p>Simple productivity app with local storage and clean UI.</p>
+          <p>Simple productivity app with local storage, clean UI, and a lightweight structure suitable for everyday task management.</p>
           <div class="meta">
-            <span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Local storage</span>
+            <span class="chip">Flutter</span>
+            <span class="chip">Dart</span>
+            <span class="chip">Local storage</span>
           </div>
-          <p style="margin-top:10px;color:#cfe6ff;font-size:13px;">
-            Live demo: rabbani84.github.io/todo1_app/
-          </p>
+          <span class="demo-link">Live demo → rabbani84.github.io/todo1_app/</span>
         </a>
 
         <a class="card proj" href="https://github.com/Rabbani84/ScientificCalculator-WPF" target="_blank" rel="noreferrer">
           <div class="tag">🧮 .NET / WPF</div>
           <h3>Scientific Calculator (WPF)</h3>
-          <p>Scientific calculator with quadratic/cubic solver and graph visualization.</p>
+          <p>Scientific calculator featuring quadratic and cubic equation solving with graph visualization for mathematical functions.</p>
           <div class="meta">
-            <span class="chip">C#</span><span class="chip">WPF</span><span class="chip">OxyPlot</span><span class="chip">Math</span>
+            <span class="chip">C#</span>
+            <span class="chip">WPF</span>
+            <span class="chip">OxyPlot</span>
+            <span class="chip">Math</span>
           </div>
         </a>
 
         <a class="card proj" href="https://github.com/Rabbani84/ZahlenRatenWPFApp" target="_blank" rel="noreferrer">
           <div class="tag">🎮 .NET / WPF</div>
           <h3>ZahlenRaten (WPF Game)</h3>
-          <p>Number guessing game showcasing logic, state management, and WPF UI interaction.</p>
+          <p>Number-guessing game showcasing basic game logic, state handling, and user interaction in a WPF desktop interface.</p>
           <div class="meta">
-            <span class="chip">C#</span><span class="chip">WPF</span><span class="chip">Game logic</span>
+            <span class="chip">C#</span>
+            <span class="chip">WPF</span>
+            <span class="chip">Game logic</span>
           </div>
         </a>
       </div>
@@ -265,16 +621,34 @@
       <div class="row">
         <div class="card list">
           <h3>Development</h3>
-          <div class="item"><strong>Flutter / Dart</strong><span style="color:var(--muted)">Cross-platform apps, demos, structured architecture</span></div>
-          <div class="item"><strong>C# / .NET 6 / WPF</strong><span style="color:var(--muted)">Desktop apps, UI + logic separation, MVVM-ready</span></div>
-          <div class="item"><strong>Web</strong><span style="color:var(--muted)">HTML, CSS, JavaScript (basics)</span></div>
+          <div class="item">
+            <strong>Flutter / Dart</strong>
+            <span style="color:var(--muted)">Cross-platform apps, mobile/web demos, structured architecture</span>
+          </div>
+          <div class="item">
+            <strong>C# / .NET 6 / WPF</strong>
+            <span style="color:var(--muted)">Desktop apps, UI + logic separation, MVVM-ready structure</span>
+          </div>
+          <div class="item">
+            <strong>Web</strong>
+            <span style="color:var(--muted)">HTML, CSS, JavaScript (basics)</span>
+          </div>
         </div>
 
         <div class="card list">
           <h3>Data & Tools</h3>
-          <div class="item"><strong>Databases</strong><span style="color:var(--muted)">SQLite, MySQL, MS SQL</span></div>
-          <div class="item"><strong>APIs</strong><span style="color:var(--muted)">REST APIs, integration patterns</span></div>
-          <div class="item"><strong>Tools</strong><span style="color:var(--muted)">Git, VS Code, Visual Studio, IntelliJ, Windows/Linux</span></div>
+          <div class="item">
+            <strong>Databases</strong>
+            <span style="color:var(--muted)">SQLite, MySQL, MS SQL</span>
+          </div>
+          <div class="item">
+            <strong>APIs</strong>
+            <span style="color:var(--muted)">REST APIs, integration workflows</span>
+          </div>
+          <div class="item">
+            <strong>Tools</strong>
+            <span style="color:var(--muted)">Git, VS Code, Visual Studio, IntelliJ, Windows/Linux</span>
+          </div>
         </div>
       </div>
     </section>
@@ -282,7 +656,7 @@
     <section id="experience">
       <div class="section-title">
         <h2>Experience & Education</h2>
-        <span>Highlights (non-personal)</span>
+        <span>Highlights</span>
       </div>
 
       <div class="row">
@@ -290,7 +664,7 @@
           <h3>Professional</h3>
           <div class="item">
             <strong>Internship · ananas.codes</strong>
-            <span style="color:var(--muted)">Flutter time tracking app · REST integration via middleware · SQLite · MVVM</span>
+            <span style="color:var(--muted)">Flutter time-tracking app · REST integration via middleware · SQLite · MVVM-oriented structure</span>
           </div>
           <div class="item">
             <strong>Umschulung · Application Development</strong>
@@ -298,7 +672,7 @@
           </div>
           <div class="item">
             <strong>InGe Program (Kiel)</strong>
-            <span style="color:var(--muted)">Java OOP · Web basics · Linux/network fundamentals</span>
+            <span style="color:var(--muted)">Java OOP · web basics · Linux/network fundamentals</span>
           </div>
         </div>
 
@@ -306,11 +680,11 @@
           <h3>Academic</h3>
           <div class="item">
             <strong>Mathematical Statistics</strong>
-            <span style="color:var(--muted)">Strong analytical foundation for algorithms and structured problem solving</span>
+            <span style="color:var(--muted)">Strong analytical foundation for algorithms and structured problem-solving</span>
           </div>
           <div class="item">
             <strong>Public Management (Administrative Informatics)</strong>
-            <span style="color:var(--muted)">Information systems & decision support fundamentals</span>
+            <span style="color:var(--muted)">Information systems and decision-support fundamentals</span>
           </div>
         </div>
       </div>
@@ -323,10 +697,22 @@
       </div>
 
       <div class="card list">
-        <div class="item"><strong>GitHub</strong><a class="chip" href="https://github.com/Rabbani84" target="_blank" rel="noreferrer">github.com/Rabbani84</a></div>
-        <div class="item"><strong>Portfolio</strong><span style="color:var(--muted)">This page + project demos on GitHub Pages</span></div>
-        <div class="item"><strong>Location</strong><span style="color:var(--muted)">Lübeck / Hamburg · Remote possible</span></div>
-        <!-- تضيف الإيميل لاحقًا: ضع سطر هنا -->
+        <div class="item">
+          <strong>GitHub</strong>
+          <a class="chip" href="https://github.com/Rabbani84" target="_blank" rel="noreferrer">github.com/Rabbani84</a>
+        </div>
+        <div class="item">
+          <strong>Portfolio</strong>
+          <span style="color:var(--muted)">This page plus live demos on GitHub Pages</span>
+        </div>
+        <div class="item">
+          <strong>Latest Demo</strong>
+          <a class="chip" href="https://rabbani84.github.io/leben-in-deutschland-demo/" target="_blank" rel="noreferrer">leben-in-deutschland-demo</a>
+        </div>
+        <div class="item">
+          <strong>Location</strong>
+          <span style="color:var(--muted)">Lübeck / Hamburg · Remote possible</span>
+        </div>
       </div>
     </section>
 
@@ -336,6 +722,7 @@
         <div class="small-links">
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
           <a href="https://github.com/Rabbani84" target="_blank" rel="noreferrer">GitHub</a>
         </div>
       </div>
