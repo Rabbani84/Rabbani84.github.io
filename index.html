@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="de">
 <head>
@@ -349,6 +350,26 @@
       border:1px solid rgba(255,255,255,.14);
     }
 
+    .proj.playstore{
+      position:relative;
+      background:
+        linear-gradient(180deg, rgba(46,229,157,.10), rgba(255,255,255,.03));
+    }
+
+    .proj.playstore::before{
+      content:"Google Play";
+      position:absolute;
+      top:14px;
+      right:14px;
+      font-size:12px;
+      font-weight:700;
+      color:#f3f6ff;
+      padding:6px 10px;
+      border-radius:999px;
+      background:linear-gradient(135deg, rgba(46,229,157,.75), rgba(98,168,255,.55));
+      border:1px solid rgba(255,255,255,.14);
+    }
+
     .proj .tag{
       display:inline-block;
       font-size:12px;
@@ -473,7 +494,7 @@
   <div class="container">
     <div class="hero" id="about">
       <div class="card hero-left">
-        <div class="kicker">Berufseinsteiger · Flutter · .NET/WPF · Lübeck/Hamburg/Remote</div>
+        <div class="kicker">Berufseinsteiger · Flutter · .NET/WPF · macOS · Windows · Linux · Lübeck/Hamburg/Remote</div>
 
         <h1>
           Junior Software Developer<br />
@@ -494,12 +515,14 @@
           <span class="pill">REST APIs · SQLite</span>
           <span class="pill">MVVM · Git</span>
           <span class="pill">C# · .NET · WPF</span>
+          <span class="pill">macOS · Windows · Linux</span>
           <span class="pill">Deutsch B2 · Arabisch Muttersprache</span>
           <span class="pill">Lübeck / Hamburg · Remote möglich</span>
         </div>
 
         <div class="cta">
           <a class="btn primary" href="#projects">Projekte ansehen</a>
+          <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.rabbani.lebendeutschlandtrainer&pcampaignid=web_share" target="_blank" rel="noreferrer">App auf Google Play</a>
           <a class="btn" href="https://github.com/Rabbani84" target="_blank" rel="noreferrer">GitHub öffnen</a>
           <a class="btn" href="mailto:rabbaniahmad.aa43@gmail.com">E-Mail schreiben</a>
           <!-- Optional: CV-Datei in dein Repository hochladen und den Dateinamen hier anpassen -->
@@ -515,6 +538,10 @@
         <div class="mini">
           <h3>Praxisprojekt</h3>
           <p><b>Mobile Zeiterfassungs-App</b>: Flutter, REST-API, SQLite, MVVM, lokale Speicherung und Anbindung an eine Middleware.</p>
+        </div>
+        <div class="mini">
+          <h3>Veröffentlichte App</h3>
+          <p><b>Leben in Deutschland Trainer</b>: zweisprachige Flutter-App für Deutsch/Arabisch, veröffentlicht im Google Play Store.</p>
         </div>
         <div class="mini">
           <h3>Einstieg möglich</h3>
@@ -557,23 +584,25 @@
           <span class="demo-link">Live-Demo / Repository ansehen →</span>
         </a>
 
-        <a class="card proj" href="https://rabbani84.github.io/leben-in-deutschland-demo/" target="_blank" rel="noreferrer">
-          <div class="tag">🇩🇪 Flutter · Web-Demo</div>
+        <a class="card proj playstore" href="https://play.google.com/store/apps/details?id=com.rabbani.lebendeutschlandtrainer&pcampaignid=web_share" target="_blank" rel="noreferrer">
+          <div class="tag">🇩🇪 Flutter · Google Play</div>
           <h3>Leben in Deutschland Trainer</h3>
           <p>
-            Zweisprachige Flutter-App zur Vorbereitung auf den Test „Leben in Deutschland“ mit deutscher und arabischer Oberfläche, Fragen, Kategorien und Lernfunktionen.
+            Zweisprachige Flutter-App zur Vorbereitung auf den Test „Leben in Deutschland“ und den Einbürgerungstest.
+            Die App bietet deutsche und arabische Inhalte, Lernfragen, Kategorien, Favoriten und eine übersichtliche Lernoberfläche.
           </p>
           <p>
-            <b>Status:</b> aktuell in der Testphase für die Veröffentlichung im Google Play Store. Eine spätere App-Store-Version ist geplant.
+            <b>Status:</b> veröffentlicht im Google Play Store. Zusätzlich ist eine Web-Demo als Portfolio-Version verfügbar.
           </p>
           <div class="meta">
             <span class="chip">Flutter</span>
             <span class="chip">Dart</span>
-            <span class="chip">Bilingual UI</span>
-            <span class="chip">JSON</span>
-            <span class="chip">Web-Demo</span>
+            <span class="chip">German / Arabic</span>
+            <span class="chip">Google Play</span>
+            <span class="chip">Exam Trainer</span>
           </div>
-          <span class="demo-link">Live-Demo öffnen →</span>
+          <span class="demo-link">App im Google Play Store öffnen →</span>
+          <span class="demo-link">Web-Demo: rabbani84.github.io/leben-in-deutschland-demo →</span>
         </a>
 
         <a class="card proj" href="https://github.com/Rabbani84/todo1_app" target="_blank" rel="noreferrer">
@@ -647,8 +676,8 @@
             <span style="color:var(--muted)">REST-APIs, JSON, Integration in bestehende Systeme</span>
           </div>
           <div class="item">
-            <strong>Tools</strong>
-            <span style="color:var(--muted)">Git, GitHub, VS Code, Visual Studio, IntelliJ, Android Studio, Windows, Linux</span>
+            <strong>Tools & Betriebssysteme</strong>
+            <span style="color:var(--muted)">Git, GitHub, VS Code, Visual Studio, IntelliJ, Android Studio, macOS, Windows, Linux</span>
           </div>
         </div>
       </div>
@@ -707,8 +736,16 @@
           <a class="chip" href="https://github.com/Rabbani84" target="_blank" rel="noreferrer">github.com/Rabbani84</a>
         </div>
         <div class="item">
-          <strong>Aktuelle Demo</strong>
-          <a class="chip" href="https://rabbani84.github.io/leben-in-deutschland-demo/" target="_blank" rel="noreferrer">Leben in Deutschland Trainer</a>
+          <strong>Google Play App</strong>
+          <a class="chip" href="https://play.google.com/store/apps/details?id=com.rabbani.lebendeutschlandtrainer&pcampaignid=web_share" target="_blank" rel="noreferrer">
+            Leben in Deutschland Trainer – Google Play
+          </a>
+        </div>
+        <div class="item">
+          <strong>Web-Demo</strong>
+          <a class="chip" href="https://rabbani84.github.io/leben-in-deutschland-demo/" target="_blank" rel="noreferrer">
+            Portfolio-Demo öffnen
+          </a>
         </div>
         <div class="item">
           <strong>Standort</strong>
@@ -726,6 +763,7 @@
           <a href="#skills">Kenntnisse</a>
           <a href="#experience">Erfahrung</a>
           <a href="https://github.com/Rabbani84" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://play.google.com/store/apps/details?id=com.rabbani.lebendeutschlandtrainer&pcampaignid=web_share" target="_blank" rel="noreferrer">Google Play</a>
         </div>
       </div>
     </footer>
